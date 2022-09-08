@@ -28,7 +28,7 @@ or npm
 > npm start
 ```
 
-### Tech 🚀🚀
+### Technology 🚀🚀
 
 1. JavaScript
 
