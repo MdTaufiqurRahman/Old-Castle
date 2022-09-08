@@ -1,4 +1,4 @@
-# <p  align="center"># OLD CASTLE 🚀🚀</p>
+## <p  align="center"> OLD CASTLE 🚀🚀</p>
 
 ### Installation 💻
 
@@ -45,4 +45,4 @@ or npm
 7. Styled-components
 
 
-<p  align="center"  bold> <b>Powered by Taufiqur Rahman™</b></p># Old-Castle
+<p  align="center"  bold> <b>Powered by Taufiqur Rahman™</b></p>
