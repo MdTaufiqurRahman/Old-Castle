@@ -18,28 +18,28 @@ export const sliderItems = [
     img: "https://cdn.suitsupply.com/image/upload/ar_10:22,b_rgb:efefef,bo_300px_solid_rgb:efefef,c_pad,g_north,w_2600/b_rgb:efefef,c_lfill,g_north,dpr_1,w_768,h_922,f_auto,q_auto,fl_progressive/products/suits/default/Summer/P6415_1.jpg",
     title: "WINTER COLLECTION",
     desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
-    bg: "fbf0f4",
+    bg: "efefef",
   },
 ];
 
 export const categories = [
   {
     id: 1,
-    img: "https://images.pexels.com/photos/5886041/pexels-photo-5886041.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    title: "SHIRT STYLE!",
-    cat:"Women"
+    img: "https://static-01.daraz.com.bd/p/3b70d933b19fea029ce6e076fd66bf33.jpg",
+    title: "MAN STYLE!",
+    cat:"Man"
   },
   {
     id: 2,
-    img: "https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-    title: "LOUNGEWEAR LOVE",
-    cat:"Shirt"
+    img: "https://cf.shopee.com.my/file/e099ebcbde03e7c29bbc5b492d3c15d2",
+    title: "WOMEN LOVE",
+    cat:"Women"
   },
   {
     id: 3,
-    img: "https://images.pexels.com/photos/5480696/pexels-photo-5480696.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    title: "LIGHT JACKETS",
-    cat:"Jacket"
+    img: "https://di2ponv0v5otw.cloudfront.net/posts/2019/07/31/5d420e321153ba5a7190e9e8/m_5d420ef28d653d82f7770e38.jpg",
+    title: "Shoe Lovers",
+    cat:"Shoe"
   },
 ];
 
