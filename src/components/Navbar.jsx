@@ -50,6 +50,7 @@ const Center = styled.div`
 
 const Logo = styled.h1`
   font-weight: bold;
+  text-decoration: none;
   ${mobile({ fontSize: "16px" })}
 `;
 const Right = styled.div`
