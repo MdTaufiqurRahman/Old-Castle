@@ -9,8 +9,10 @@ import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import { userRequest } from "../requestMethods";
 import StripeCheckout from "react-stripe-checkout";
+import { Link } from "react-router-dom";
 
-const KEY = process.env.REACT_APP_STRIPE;
+const publishableKey =
+  "pk_test_51Ikj2jAzXKqWoNArfVzhIQAUgoPQ1x7WjeJj5oYCjByjvOHUkoW5wTkrTQb6pYJFKOOXfvyKG2E0OHXpLhLhHkJn00HRWJgBdx";
 
 const Container = styled.div``;
 
@@ -45,9 +47,9 @@ const TopTexts = styled.div`
   ${mobile({ display: "none" })}
 `;
 const TopText = styled.span`
-  text-decoration: underline;
   cursor: pointer;
   margin: 0px 10px;
+  color: #003580;
 `;
 
 const Bottom = styled.div`
@@ -196,22 +198,29 @@ const Cart = () => {
       <Wrapper>
         <Title>YOUR BAG</Title>
         <Top>
-          <TopButton>CONTINUE SHOPPING</TopButton>
+          <Link to="/">
+            <TopButton>CONTINUE SHOPPING</TopButton>
+          </Link>
           <TopTexts>
-            <TopText>Shopping Bag(2)</TopText>
-            <TopText>Your Wishlist (0)</TopText>
+            <TopText>
+              Please use any data for Address and Name and Email, also use
+              <br />
+              Card Number: 4242 4242 4242 4242, Expiry: 08/24, CVV: 123 for
+              Dummy Payment
+            </TopText>
           </TopTexts>
           <StripeCheckout
             name="OLD CASTLE"
-            image="https://drive.google.com/drive/u/0/folders/1duHzd770oznK1dTVvPVWMFYdiIWynzcU"
             billingAddress
             shippingAddress
+            image="https://svgshare.com/i/QaG.svg"
             description={`Your total is $${cart.total}`}
             amount={cart.total * 100}
+            panelLabel="Pay Now"
             token={onToken}
-            stripeKey={KEY}
+            stripeKey={publishableKey}
           >
-            <TopButton type="filled">CHECKOUT NOW</TopButton>
+            <TopButton type="filled">CHECKOUT NOW</TopButton>{" "}
           </StripeCheckout>
         </Top>
         <Bottom>
@@ -235,9 +244,7 @@ const Cart = () => {
                 </ProductDetail>
                 <PriceDetail>
                   <ProductAmountContainer>
-                    <Add />
-                    <ProductAmount>{product.quantity}</ProductAmount>
-                    <Remove />
+                    <b> Quantity : </b>{product.quantity}
                   </ProductAmountContainer>
                   <ProductPrice>
                     $ {product.price * product.quantity}
@@ -267,13 +274,14 @@ const Cart = () => {
             </SummaryItem>
             <StripeCheckout
               name="OLD CASTLE"
-              image="https://drive.google.com/drive/u/0/folders/1duHzd770oznK1dTVvPVWMFYdiIWynzcU"
               billingAddress
               shippingAddress
+              image="https://drive.google.com/drive/u/0/folders/1duHzd770oznK1dTVvPVWMFYdiIWynzcU"
               description={`Your total is $${cart.total}`}
               amount={cart.total * 100}
+              panelLabel="Pay Now"
               token={onToken}
-              stripeKey={KEY}
+              stripeKey={publishableKey}
             >
               <Button>CHECKOUT NOW</Button>
             </StripeCheckout>
