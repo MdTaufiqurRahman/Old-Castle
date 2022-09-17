@@ -1,15 +1,15 @@
-import { Add, Remove } from "@material-ui/icons";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router";
+import { Link } from "react-router-dom";
+import StripeCheckout from "react-stripe-checkout";
 import styled from "styled-components";
 import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import { mobile } from "../responsive";
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { useHistory } from "react-router";
 import { userRequest } from "../requestMethods";
-import StripeCheckout from "react-stripe-checkout";
-import { Link } from "react-router-dom";
+import { mobile } from "../responsive";
+import { removeProduct } from "../redux/cartRedux";
 
 const publishableKey =
   "pk_test_51Ikj2jAzXKqWoNArfVzhIQAUgoPQ1x7WjeJj5oYCjByjvOHUkoW5wTkrTQb6pYJFKOOXfvyKG2E0OHXpLhLhHkJn00HRWJgBdx";
@@ -111,12 +111,6 @@ const ProductAmountContainer = styled.div`
   margin-bottom: 20px;
 `;
 
-const ProductAmount = styled.div`
-  font-size: 24px;
-  margin: 5px;
-  ${mobile({ margin: "5px 15px" })}
-`;
-
 const ProductPrice = styled.div`
   font-size: 30px;
   font-weight: 200;
@@ -170,6 +164,7 @@ const Cart = () => {
   const cart = useSelector((state) => state.cart);
   const [stripeToken, setStripeToken] = useState(null);
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const onToken = (token) => {
     setStripeToken(token);
@@ -182,6 +177,7 @@ const Cart = () => {
           tokenId: stripeToken.id,
           amount: 500,
         });
+        dispatch(removeProduct());
         history.push("/success", {
           stripeData: res.data,
           products: cart,
@@ -244,7 +240,8 @@ const Cart = () => {
                 </ProductDetail>
                 <PriceDetail>
                   <ProductAmountContainer>
-                    <b> Quantity : </b>{product.quantity}
+                    <b> Quantity : </b>
+                    {product.quantity}
                   </ProductAmountContainer>
                   <ProductPrice>
                     $ {product.price * product.quantity}
