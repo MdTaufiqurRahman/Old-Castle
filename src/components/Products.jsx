@@ -19,8 +19,8 @@ const Products = ({ cat, filters, sort }) => {
       try {
         const res = await axios.get(
           cat
-            ? `https://guarded-temple-31920.herokuapp.com/api/products?category=${cat}`
-            : "https://guarded-temple-31920.herokuapp.com/api/products"
+            ? `https://old-castle-server.onrender.com/api/products?category=${cat}`
+            : "https://old-castle-server.onrender.com/api/products"
         );
         setProducts(res.data);
       } catch (err) {}
@@ -55,7 +55,6 @@ const Products = ({ cat, filters, sort }) => {
     }
   }, [sort]);
 
-  console.log(cat, filters, sort);
   return (
     <Container>
       {cat
